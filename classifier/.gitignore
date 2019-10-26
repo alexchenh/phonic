@@ -2,3 +2,8 @@
 *.jpg
 *.m4a
 *.wav
+*.swp
+*.ckpt.*
+.DS_Store
+training
+__pycache__
