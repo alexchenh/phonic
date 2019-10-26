@@ -2,20 +2,19 @@
 
 import os
 
-labels = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
-#labels = os.listdir('./sc09_img/sc09_cyclegan')
-modes = ['sc09_cyclegan']
+labels = ['alex', 'adam', 'joseph']
+modes = ['train_sample']
 
 for mode in modes:
-    data_path = '/home/data/speech_commands/sc09_img/' + mode
+    data_path = '/Users/acheketa/workspace/yhack/justlisten/classifier/data/spectrogram/'
     f = open('./' + mode +'.txt', 'w+')
 
     for idx, label in enumerate(labels):
         file_path = os.path.join(data_path, label)
-        waves = os.listdir(file_path)
+        imgs = os.listdir(file_path)
 
-        for wave in waves:
-            wav_path = os.path.join(file_path, wave)
-            f.write(wav_path + ' ' + str(idx) + '\n')
+        for img in imgs:
+            img_path = os.path.join(file_path, img)
+            f.write(img_path + ' ' + str(idx) + '\n')
 
     f.close()
