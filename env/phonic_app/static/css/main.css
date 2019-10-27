@@ -1,0 +1,98 @@
+.multi-background{
+    width: 100vw;
+    height: 100vh;
+    background-image: 
+        linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0));
+    background-repeat: no-repeat,
+        no-repeat,
+        no-repeat;
+    background-position: bottom right,
+        left,
+        right;
+}
+
+.Start_Page{
+    display: block;
+    position: absolute;
+    top: 45%;
+    margin: auto;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+}
+
+.Product_Service_Screen{
+    text-align: center; 
+}
+
+.logo{
+    width: 25%;
+    height:25%;
+    border:2%;
+}
+
+.Title_Page{
+    display: block;
+    height:25%;
+    font-weight: bold; 
+    font-size: 125%;
+    word-wrap: break-word;
+}
+
+.input-group {
+    position: relative;
+    margin: auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: stretch;
+    align-items: center;
+    width: 25%;
+}
+
+.Submit_btn{
+    text-align:center;
+    margin: 5%;
+    width:50%;
+}
+
+.Loading_Page{
+    display:none;
+    position: absolute;
+    top: 65%;
+    margin: auto;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.gif_graph{
+    width:35%;
+    height:35%;
+    margin: 5%;
+}
+
+.buffertext{
+    font-weight: bold;
+    font-size: 150%;
+}
+
+.Results_Page{
+    display: none;
+}
+
+/* Graphs */
+.Keywords{
+
+}
+.Pi_ChartP{
+
+}
+.KPIs{
+
+}
+.Transcript{
+
+}

@@ -5,3 +5,4 @@ google-cloud-speech==1.2.0
 google-cloud-language==1.2.0
 gunicorn==19.9.0
 pydub==0.23.1
+rake-nltk==1.0.4

@@ -72,18 +72,23 @@ def index():
             print('Sentiment: {}, {}'.format(sent.score, sent.magnitude))
             keywords = keyword_extractor(transcript)
             print('Keywords: ', keywords)
-
-    return f"""
-    <!doctype html>
-    <title>Upload new File</title>
-    {extra_line}
-    <h1>Upload new File</h1>
-    <form method=post enctype=multipart/form-data>
-      <input type=file name=file>
-      <p/>
-      <input type=submit value=Upload>
-    </form>
-    """
+            
+    return render_template('index.html')
+    # return f'''
+    # <!doctype html>
+    # <title>Upload new File</title>
+    # {extra_line}
+    # <h1>Upload new File</h1>
+    # <form method=post enctype=multipart/form-data>
+    #   <input type=file name=file>
+    #   <p/>
+    #   <input type=submit value=Upload>
+    # </form>
+    # '''
+@app.route('/stats')
+def stats():
+    render_template('stats.html')
+        
 
 def mp3_to_wav(audio_file_name):
     if audio_file_name.split('.')[1] == 'mp3':    
@@ -180,5 +185,4 @@ if __name__ == '__main__':
     # App Engine itself will serve those files as configured in app.yaml.
     app.run(host='127.0.0.1', port=8080, debug=True)
     
-
 
