@@ -1,0 +1,20 @@
+# file list to .txt
+
+import os
+
+modes = ['train_sample']
+
+for mode in modes:
+    data_path = '/Users/acheketa/workspace/yhack/justlisten/classifier/data/LibriSpeech/train-clean-100'
+    labels = os.listdir(data_path)
+	f = open('./' + mode +'.txt', 'w+')
+
+    for idx, label in enumerate(labels):
+        file_path = os.path.join(data_path, label)
+        imgs = os.listdir(file_path)
+
+        for img in imgs:
+            img_path = os.path.join(file_path, img)
+            f.write(img_path + ' ' + str(idx) + '\n')
+
+    f.close()
