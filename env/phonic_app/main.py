@@ -1,6 +1,6 @@
 
 bucketname = "audio_uploads1"
-import nlp as nlp
+import nlp
 import datetime
 from pydub import AudioSegment
 import io
@@ -70,6 +70,8 @@ def index():
             print(transcript)
             sent = nlp.google_nlp_sentiment(transcript)
             print('Sentiment: {}, {}'.format(sent.score, sent.magnitude))
+            keywords = keyword_extractor(transcript)
+            print('Keywords: ', keywords)
 
     return f"""
     <!doctype html>
@@ -114,7 +116,7 @@ def delete_blob(bucket_name, blob_name):
     storage_client = storage.Client()
     bucket = storage_client.get_bucket(bucket_name)
     blob = bucket.blob(blob_name)
-
+    
     blob.delete()
 
 def google_transcribe(audio_file_name, filepath):
@@ -153,8 +155,15 @@ def google_transcribe(audio_file_name, filepath):
     for result in response.results:
         transcript += result.alternatives[0].transcript
     
-    delete_blob(bucket_name, destination_blob_name)
+    # delete_blob(bucket_name, destination_blob_name)
     return transcript
+
+def keyword_extractor(text):
+    from rake_nltk import Rake
+    r = Rake()
+    r.extract_keywords_from_text(text)
+    keywords = r.get_ranked_phrases()[:5]
+    return keywords
 
 # def write_transcripts(transcript_filename,transcript):
 #     f= open(output_filepath + transcript_filename,"w+")
