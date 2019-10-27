@@ -1,12 +1,13 @@
 
 bucketname = "audio_uploads1"
-
+import nlp as nlp
 import datetime
 from pydub import AudioSegment
 import io
 from google.cloud import speech
 from google.cloud.speech import enums
 from google.cloud.speech import types
+
 import wave
 from google.cloud import storage
 import os
@@ -65,7 +66,10 @@ def index():
             extra_line += f"<br>File saved to {filepath}"
             # return redirect(url_for('uploaded_file',filename=filename))
             # Run with Google Speech
-            extra_line+=f"<br>" + (google_transcribe(filename, filepath))
+            transcript = google_transcribe(filename, filepath)
+            print(transcript)
+            sent = nlp.google_nlp_sentiment(transcript)
+            print('Sentiment: {}, {}'.format(sent.score, sent.magnitude))
 
     return f"""
     <!doctype html>
@@ -152,11 +156,10 @@ def google_transcribe(audio_file_name, filepath):
     delete_blob(bucket_name, destination_blob_name)
     return transcript
 
-
-def write_transcripts(transcript_filename,transcript):
-    f= open(output_filepath + transcript_filename,"w+")
-    f.write(transcript)
-    f.close()
+# def write_transcripts(transcript_filename,transcript):
+#     f= open(output_filepath + transcript_filename,"w+")
+#     f.write(transcript)
+#     f.close()
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
