@@ -67,6 +67,9 @@ class BatchPreprocessor(object):
                 img = cv2.flip(img, 1)
 
             if self.multi_scale is None:
+                if img is None:
+                    print("hi!!!!!!!!!!!! ", paths[i])
+                    assert 0
                 # Resize the image for output
                 img = cv2.resize(img, (self.output_size[0], self.output_size[0]))
                 img = img.astype(np.float32)

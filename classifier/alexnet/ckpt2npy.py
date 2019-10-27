@@ -5,9 +5,9 @@ from model import AlexNetModel
 
 
 # Edit just these
-FILE_PATH = '/home/finetune/training/alexnet_20190220_005707/checkpoint/model_epoch7.ckpt'
-NUM_CLASSES = 20
-OUTPUT_FILE = 'sc_epoch7.npy'
+FILE_PATH = '../training/alexnet_20191026_221615/checkpoint/model_epoch10.ckpt'
+NUM_CLASSES = 252
+OUTPUT_FILE = 'sid_epoch10.npy'
 
 
 if __name__ == '__main__':

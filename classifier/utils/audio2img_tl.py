@@ -22,8 +22,14 @@ def audio2img(name):
 				plt.pcolormesh(times, freqs, amplitudes)
 				plt.axis('off')
 				plt.savefig('LibriSpeech/' + os.path.basename(audio_file).replace('.flac', '') + '_{}.png'.format(num), bbox_inches='tight', pad_inches=0)
+				plt.close()
 
 file_dir = "/Users/acheketa/workspace/yhack/justlisten/classifier/data/LibriSpeech/train-clean-100"
 names = os.listdir(file_dir)
+
+# start from where we finished
+names_ex = set([x.split('-')[0] for x in os.listdir(file_dir.replace('data', 'utils').replace('train-clean-100', ''))])
+names = list(set(names) - set(names_ex))
+
 for name in names:
 	audio2img(name)

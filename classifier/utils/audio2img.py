@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def audio2img(name, file_num):
+	file_dir ="/Users/acheketa/workspace/yhack/justlisten/classifier/data/raw_voice/ver2"	
 	audio = audiosegment.from_file(file_dir + "/{}_{}.m4a".format(name, file_num))
 
 	# trim audio
@@ -19,8 +20,13 @@ def audio2img(name, file_num):
 		plt.savefig("{}_file{}_{}.png".format(name, file_num, num), bbox_inches='tight', pad_inches=0)
 		plt.close()
 
-file_dir = "/Users/acheketa/workspace/yhack/justlisten/classifier/data/train_data"
+"""
 names = ['alex', 'adam', 'joseph']
 for name in names:
 	audio2img(name, '1')
 	audio2img(name, '2')
+
+for x in range(10):
+	audio2img('alex', str(x))
+"""
+audio2img('joseph', 0)

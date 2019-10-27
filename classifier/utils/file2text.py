@@ -3,11 +3,11 @@
 import os
 
 labels = ['alex', 'adam', 'joseph']
-modes = ['train_sample']
+modes = ['train', 'val']
 
 for mode in modes:
-    data_path = '/Users/acheketa/workspace/yhack/justlisten/classifier/data/spectrogram/'
-    f = open('./' + mode +'.txt', 'w+')
+    data_path = '/Users/acheketa/workspace/yhack/justlisten/classifier/data/spectrogram/' + mode
+    f = open('./{}_custom.txt'.format(mode), 'w+')
 
     for idx, label in enumerate(labels):
         file_path = os.path.join(data_path, label)
@@ -18,3 +18,5 @@ for mode in modes:
             f.write(img_path + ' ' + str(idx) + '\n')
 
     f.close()
+
+
