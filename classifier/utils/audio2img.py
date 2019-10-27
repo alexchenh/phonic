@@ -2,6 +2,17 @@ import audiosegment
 import matplotlib.pyplot as plt
 import numpy as np
 
+def audio2img_sample(file_name):
+	seg = audiosegment.from_file(file_name)
+	freqs, times, amplitudes = seg.spectrogram(window_length_s=0.03, overlap=0.5)
+	amplitudes = 10 * np.log10(amplitudes + 1e-9)
+
+	# Plot
+	plt.pcolormesh(times, freqs, amplitudes)
+	plt.axis('off')
+	plt.savefig("sample_spec.png", bbox_inches='tight', pad_inches=0)
+	plt.close()
+
 def audio2img(name, file_num):
 	file_dir ="/Users/acheketa/workspace/yhack/justlisten/classifier/data/raw_voice/ver2"	
 	audio = audiosegment.from_file(file_dir + "/{}_{}.m4a".format(name, file_num))
@@ -29,4 +40,5 @@ for name in names:
 for x in range(10):
 	audio2img('alex', str(x))
 """
-audio2img('joseph', 0)
+
+# audio2img('joseph', '0')
