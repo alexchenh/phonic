@@ -24,7 +24,7 @@ def speaker_id(input_wav):
 		sid = identifier('./input/' + img, ckpt, num_classes=3)
 		output_sid.append(sid)
 	
-	return output_sid
+	return output_sid, pie_chart(output_sid)
 
 
 def identifier(in_img, ckpt, num_classes):
@@ -75,3 +75,24 @@ def record():
 	from audio2img import audio2img_sample
 	audio2img_sample('./output.wav')
 
+def pie_chart(speaker_id):
+	import matplotlib.pyplot as plt
+
+	# Pie chart
+	labels = ['Alex', 'Adam', 'Joseph']
+	sizes = np.array(speaker_id).sum(axis=0)
+	
+	#colors
+	colors = ['#ff9999','#66b3ff','#99ff99']
+	 
+	fig1, ax1 = plt.subplots()
+	ax1.pie(sizes, colors = colors, labels=labels, autopct='', startangle=90)
+	#draw circle
+	centre_circle = plt.Circle((0,0),0.70,fc='white')
+	fig = plt.gcf()
+	fig.gca().add_artist(centre_circle)
+	# Equal aspect ratio ensures that pie is drawn as a circle
+	ax1.axis('equal')  
+	plt.tight_layout()
+	plt.savefig("speaker_id")
+	plt.close()
