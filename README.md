@@ -1,4 +1,7 @@
 # phonic
+
+From our [YHack devpost](https://devpost.com/software/phonic):
+
 ## Inspiration
 We were inspired by the "enhancement approach" described in the paper, "Teaching in low-resource classrooms: voices of experience" by the British Council. Rather than making a solution on the basis of our preconceived notions on what students and teachers should be doing, we read about the success stories of teachers in low-resource classrooms, and used that as the basis for our ideation. We found many success stories involved teachers leveraging group activities, discussions, and peer learning to nurture a sense of learning among students and teach effectively without access to many resources. Focusing on helping teachers exercise their human strengths, we wanted to create a tool for teachers to use during discussions that would allow them to spend less time recording speaking times, notes, etc., and more time facilitating successful group interaction and engaging discussion. 
 
